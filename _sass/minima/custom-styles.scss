@@ -2,14 +2,15 @@
 // Uncomment out the following themes to use them 
 
 // Guide: https://github.com/jekyll/minima/blob/master/README.md
-@import "minima/dark-mode"; 
+@import "minima/hacker/jekyll-theme-hacker"; 
 
 /*--- CUSTOM STYLES FOR Nighthawkpages ---*/
 @import "minima/Nighthawkpages-styles"; 
 @import "minima/Nighthawkpages-button-styles"; // calculator, binary math styles 
 @import "minima/dracula/color-highlight-styles";  // Dracula theme
 @import "minima/dracula/platformer-styles";  // platformer game styles 
-@import "minima/gradient-button"
+@import "minima/dark-mode";
+//@import "minima/gradient-button"
 
 
 /*--- CUSTOM STYLES FOR Minma ---*/

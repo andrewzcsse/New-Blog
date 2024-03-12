@@ -1,7 +1,7 @@
 @import "rouge-base16-dark";
 @import "default_colors";
-@import "minima/Dark_Mode";
-@import "minima/Nighthawkpages-dracula-highlight";
+@import "minima/dark-mode";
+@import "minima/dracula/color-highlight-styles";
 $body-background: $cod-grey !default;
 $body-foreground: $gallery !default;
 $header: $conifer !default;
@@ -243,11 +243,6 @@ hr {
 /* Links
    a, a:hover, a:visited
 */
-
-a {
-  color: #63c0f5;
-  text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
-}
 
 /* Clearfix */
 
