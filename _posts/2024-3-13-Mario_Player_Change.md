@@ -1,15 +1,15 @@
 ---
-layout: base
-title: Course Outlines
+layout: post
+type: ccc
+courses: { csse: {week: 14} }
+title: Mario Player Change and Debugging
+decsription: Code from trimester one game incorporated to make Mario movements more fluid
+comments: true
+toc: false
 image: /images/mario_animation.png
-hide: true
 ---
 
-<!-- Liquid:  statements -->
 
-<!-- Include submenu from _includes to top of pages -->
-{% include nav_home.html %}
-<!--- Concatenation of site URL to frontmatter image  --->
 {% assign sprite_file = site.baseurl | append: page.image %}
 <!--- Has is a list variable containing mario metadata for sprite --->
 {% assign hash = site.data.mario_metadata %}  
@@ -19,7 +19,6 @@ hide: true
 <!--- HTML for page contains <p> tag named "Mario" and class properties for a "sprite"  -->
 
 <p id="mario" class="sprite"></p>
-  
 <!--- Embedded Cascading Style Sheet (CSS) rules, 
         define how HTML elements look 
 --->
@@ -40,6 +39,7 @@ hide: true
     background-position: calc({{animations[0].col}} * {{pixels}} * -1px) calc({{animations[0].row}} * {{pixels}}* -1px);
   }
 </style>
+
 
 <!--- Embedded executable code--->
 <script>
@@ -188,5 +188,3 @@ hide: true
   });
 
 </script>
-
-
