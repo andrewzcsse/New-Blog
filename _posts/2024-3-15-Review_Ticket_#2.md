@@ -24,6 +24,17 @@ type: collab
 
 ## Timer
 - Fixed the timer so that it actually counts up as play time increases
+    - Imported GameConttrol.js into GameSteup.js so that the functions for running the timer would actually work
 
 ## Lopez fix
 - Made the tube at the end of the Lopez level bigger so that the sprite can fit in the tube
+
+# Plans for Next Week
+
+## Fix the movement
+- I want to change the jumpin mechanic since right now all sprites teleport from point a to point b when jumping instead of actually travelling
+    - Can use tri 1 code for this
+
+# Begin level development with teammmates
+- Ideas
+    - 

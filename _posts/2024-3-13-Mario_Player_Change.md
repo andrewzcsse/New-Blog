@@ -2,7 +2,7 @@
 layout: post
 type: ccc
 courses: { csse: {week: 14} }
-title: Mario Player Change and Debugging
+title: Mario Player Change
 decsription: Code from trimester one game incorporated to make Mario movements more fluid
 comments: true
 toc: false
