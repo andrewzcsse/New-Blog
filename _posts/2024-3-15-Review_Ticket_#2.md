@@ -35,6 +35,9 @@ type: collab
 - I want to change the jumpin mechanic since right now all sprites teleport from point a to point b when jumping instead of actually travelling
     - Can use tri 1 code for this
 
-# Begin level development with teammmates
-- Ideas
-    - 
+# Looking Forward to Team Work
+
+## Team task
+- We were assigned leaderboard
+    - We need to open some issues as a team so we can set goals
+    - Need to assign roles so that we can determine a work structure
