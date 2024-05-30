@@ -9,6 +9,7 @@ toc: true
 ---
 
 ## Game Control Code: Total __/5, Grade __/1 
+
 - The `gameSetup` file begins by importing all relevant gameObjects from the other files within the repository 
 
 ```js
@@ -59,7 +60,12 @@ import SkibidiToilet from './SkibidiToilet.js';
 ```
 
 - For our level specifically, the referenced objects are `playerSkibidi`, `skibidiTitan`, `Laser` and `skibidiToilet`
+
+### JavaScript Objects Setup and State Machines for `skibidiTitan`
+- 
+
 - Then the objects are all initilized at the start of the game when `startGameCallBack` is called via an event listener
+- Properties of the titan are set with a state machine such as the `id.hidden` property
 
 ```js
 startGameCallback: async function() {
@@ -77,7 +83,7 @@ startGameCallback: async function() {
 ```
 
 - Following this, all appropriate assets are defined and given parameters 
-- For our level, these assets include `vucbks` under obstacles, `skibidiSand` under platforms, `escaper` under players, and `skibidiToilet` and `skibidiTitan` under enemies
+- For our level, these assets include `vbucks` under obstacles, `skibidiSand` under platforms, `escaper` under players, and `skibidiToilet` and `skibidiTitan` under enemies
 - After this, the level is defined under `skibidiGameObjects` and set to be a new gameLevel
 
 ```js
@@ -117,4 +123,59 @@ const skibidiGameObjects = [
 export default GameSetup;
 ```
 
-## Class Design Using DrawIO Tool: Total __/3 Grade __/1
+## Class Design Using DrawIO Tool
+
+
+
+## My Favorite Changes
+
+### Background Dim
+
+- Background dim was the change that caused me to do the most technical exploration of the codebase for platformer3x
+- I first had to figure out whether or not I wanted to make a change to all of the background canvases, or if there was a different approach I could use
+- My research led me to the conclusion that it would be easiest to creat a new div element that would layer on top of the existing screen when the leaderboard was opened
+
+``` js
+backgroundDim: {
+}
+```
+
+- backgroundDim was created as a method under the leaderboard object
+- There are two functions, `create()` and `remove()`
+- The create function generates the div element and assigns all of its properties
+
+```js
+create () {
+      this.dim = true // sets the dim to be true when the leaderboard is opened
+      console.log("CREATE DIM")
+      const dimDiv = document.createElement("div");
+      dimDiv.id = "dim";
+      dimDiv.style.backgroundColor = "black";
+      dimDiv.style.width = "100%";
+      dimDiv.style.height = "100%";
+      dimDiv.style.position = "absolute";
+      dimDiv.style.opacity = "0.8";
+      document.body.append(dimDiv);
+      dimDiv.style.zIndex = "9998"
+      dimDiv.addEventListener("click", Leaderboard.backgroundDim.remove)
+},
+```
+
+- The remove function sets the leaderboard property of `isOpen` to false
+
+```js
+remove () {
+      this.dim = false
+      console.log("REMOVE DIM");
+      const dimDiv = document.getElementById("dim");
+      dimDiv.remove();
+      Leaderboard.isOpen = false
+      leaderboardDropDown.style.width = this.isOpen?"70%":"0px";
+      leaderboardDropDown.style.top = this.isOpen?"15%":"0px";
+      leaderboardDropDown.style.left = this.isOpen?"15%":"0px";
+},
+```
+- When working in `SettingsControl.js` I applied similar logic, but the file is not constructed the same as the leaderboard so I had to create background dim as its own object as opposed to a method
+
+### Leaderboard Paging (first iteration)
+- 
