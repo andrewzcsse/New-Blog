@@ -246,3 +246,11 @@ remove () {
 },
 ```
 - When working in `SettingsControl.js` I applied similar logic, but the file is not constructed the same as the leaderboard so I had to create background dim as its own object as opposed to a method
+
+## Working in a Team for Game Development
+
+- This trimester was a bit more complex since my team was double the size of the group from tri 1
+- We realized how much more important communication would be when our progress was held up by various merge issues relating to a lack of team communication and not being in sync with the class version control
+- We also did a lot more for documentation this trimester than in tri 1, as one of my primary responsibilities within the team was to ensure that we kept up to date with our issues and our pull requests
+      - This proved useful in our team live reviews since explaining our changes was a lot easier when we used issues, demos, and pull requests
+- All in all, I learned a lot about working with a team this trimester and furthered my technical understanding of game development in javascript, so I feel ready to take the next step into college where I can use everything I have learned in CSSE
