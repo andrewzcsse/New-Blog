@@ -210,7 +210,7 @@ backgroundDim: {
 }
 ```
 
-- backgroundDim was created as a method under the leaderboard object
+- backgroundDim was created as a property under the leaderboard object
 - There are two functions, `create()` and `remove()`
 - The create function generates the div element and assigns all of its properties
 
