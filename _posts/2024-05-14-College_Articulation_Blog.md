@@ -107,7 +107,6 @@ import SkibidiToilet from './SkibidiToilet.js';
 
 - For our level specifically, the referenced objects are `playerSkibidi`, `skibidiTitan`, `Laser` and `skibidiToilet`
 - Then the objects are all initilized at the start of the game when `startGameCallBack` is called via an event listener
-- Properties of the titan are set with a state machine such as the `id.hidden` property
 
 ```js
 startGameCallback: async function() {
