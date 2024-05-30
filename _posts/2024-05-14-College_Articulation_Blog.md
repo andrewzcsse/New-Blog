@@ -124,7 +124,7 @@ export default GameSetup;
 ```
 
 ## Class Design Using DrawIO Tool
-
+![draw.io](New-Blog/images/articulation_blog.png)
 
 
 ## My Favorite Changes
