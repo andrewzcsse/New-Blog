@@ -8,7 +8,53 @@ comments: true
 toc: true
 ---
 
-## Game Control Code
+## Game Construction
+
+### JavaScript Objects Setup for `Leaderboard.js`
+- We reconstructed the leaderboard to be designed as one extended object that would allow for development to be more streamlined in the future
+
+```js
+const Leaderboard = {
+    currentKey: "localTimes",
+    currentPage: 1,
+    rowsPerPage: 10,
+    isOpen: false,
+    detailed: false,
+    dim: false,
+    currentSort: "time-l",
+}
+```
+
+### Single Responsibility Principle
+- The idea that every object utilized in OOP should only be used for one specific function
+
+```js
+collisionAction() {
+        // check player collision
+        if (this.collisionData.touchPoints.other.id === "player") {
+            if (this.id) {
+                GameEnv.claimedCoinIds.push(this.id)
+            }
+            this.destroy();
+            GameControl.gainCoin(5)
+            GameEnv.playSound("coin");
+        }
+    }
+```
+
+- The coin is then returned to an array after the collision is confirmed
+
+```js
+this.id = this.initiateId()
+
+initiateId() {
+        const currentCoins = GameEnv.gameObjects
+
+        return currentCoins.length //assign id to the coin's position in the gameObject Array (is unique to the coin)
+    }
+```
+
+### Game Control Code
 
 - The `gameSetup` file begins by importing all relevant gameObjects from the other files within the repository  
 
@@ -60,38 +106,6 @@ import SkibidiToilet from './SkibidiToilet.js';
 ```
 
 - For our level specifically, the referenced objects are `playerSkibidi`, `skibidiTitan`, `Laser` and `skibidiToilet`
-
-### Single Responsibility Principle
-- The idea that every object utilized in OOP should only be used for one specific function
-
-```js
-collisionAction() {
-        // check player collision
-        if (this.collisionData.touchPoints.other.id === "player") {
-            if (this.id) {
-                GameEnv.claimedCoinIds.push(this.id)
-            }
-            this.destroy();
-            GameControl.gainCoin(5)
-            GameEnv.playSound("coin");
-        }
-    }
-```
-
-- The coin is then returned to an array after the collision is confirmed
-
-```js
-this.id = this.initiateId()
-
-initiateId() {
-        const currentCoins = GameEnv.gameObjects
-
-        return currentCoins.length //assign id to the coin's position in the gameObject Array (is unique to the coin)
-    }
-```
-
-### JavaScript Objects Setup and State Machines for `skibidiTitan`
-
 - Then the objects are all initilized at the start of the game when `startGameCallBack` is called via an event listener
 - Properties of the titan are set with a state machine such as the `id.hidden` property
 
@@ -149,6 +163,34 @@ const skibidiGameObjects = [
 
 ```js
 export default GameSetup;
+```
+### Finite State Machines
+- The usage of a set state that can update for an object depending on a change in property or a user interaction
+
+```js
+const postStateMachine = {
+    currentStatus: "loading",
+
+    uploadPost () {
+        if (this.currentStatus == "uploaded") {
+            return "posted"
+        }
+        //this will actually upload the post
+        this.currentStatus = "uploaded"
+    },
+
+    deletePost () {
+        if (this.currentStatus === "deleted") {
+            return "post_deleted"
+        }
+        //this will delete the post
+        this.currentStatus = "deleted"
+    }
+
+    getPostStatus () { // allows us to check the status of the post at any point 
+        return this.currentStatus;
+    }
+}
 ```
 
 ## Class Design Using DrawIO Tool
