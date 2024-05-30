@@ -8,9 +8,9 @@ comments: true
 toc: true
 ---
 
-## Game Control Code: Total __/5, Grade __/1 
+## Game Control Code
 
-- The `gameSetup` file begins by importing all relevant gameObjects from the other files within the repository 
+- The `gameSetup` file begins by importing all relevant gameObjects from the other files within the repository  
 
 ```js
 import Background from './Background.js'
@@ -61,8 +61,36 @@ import SkibidiToilet from './SkibidiToilet.js';
 
 - For our level specifically, the referenced objects are `playerSkibidi`, `skibidiTitan`, `Laser` and `skibidiToilet`
 
+### Single Responsibility Principle
+- The idea that every object utilized in OOP should only be used for one specific function
+
+```js
+collisionAction() {
+        // check player collision
+        if (this.collisionData.touchPoints.other.id === "player") {
+            if (this.id) {
+                GameEnv.claimedCoinIds.push(this.id)
+            }
+            this.destroy();
+            GameControl.gainCoin(5)
+            GameEnv.playSound("coin");
+        }
+    }
+```
+
+- The coin is then returned to an array after the collision is confirmed
+
+```js
+this.id = this.initiateId()
+
+initiateId() {
+        const currentCoins = GameEnv.gameObjects
+
+        return currentCoins.length //assign id to the coin's position in the gameObject Array (is unique to the coin)
+    }
+```
+
 ### JavaScript Objects Setup and State Machines for `skibidiTitan`
-- 
 
 - Then the objects are all initilized at the start of the game when `startGameCallBack` is called via an event listener
 - Properties of the titan are set with a state machine such as the `id.hidden` property
@@ -124,10 +152,11 @@ export default GameSetup;
 ```
 
 ## Class Design Using DrawIO Tool
-![draw.io](New-Blog/images/articulation_blog.png)
+<div style="background-color: white; padding: 10px">
+      <img src="{{site.baseurl}}/images/articulation_blog.png" alt=drawio >
+</div>
 
-
-## My Favorite Changes
+## My Favorite Change
 
 ### Background Dim
 
@@ -176,6 +205,3 @@ remove () {
 },
 ```
 - When working in `SettingsControl.js` I applied similar logic, but the file is not constructed the same as the leaderboard so I had to create background dim as its own object as opposed to a method
-
-### Leaderboard Paging (first iteration)
-- 
