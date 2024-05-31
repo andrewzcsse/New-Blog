@@ -194,7 +194,7 @@ const postStateMachine = {
 
 ## Class Design Using DrawIO Tool
 <div style="background-color: white; padding: 10px">
-      <img src="{{site.baseurl}}/images/articulation_blog.png" alt=drawio >
+      <img src="{{site.baseurl}}/images/blogdrawio.png" alt=drawio >
 </div>
 
 ## My Favorite Change
